@@ -27,6 +27,25 @@ class BST:
         else:
             parentNode.left = Node(valueToInsert)
 
+    def recursiveInsert(self, valueToInsert):
+
+        def insert(curr, parent, value):
+            if curr is None:
+                if parent.value < value:
+                    parent.right = Node(value)
+                else:
+                    parent.left = Node(value)
+            else:
+                if curr.value < value:
+                    insert(curr.right, curr, value)
+                elif curr.value > value:
+                    insert(curr.left, curr, value)
+
+        if self.root is None:
+            self.root = Node(valueToInsert)
+        else:
+            insert(self.root, None, valueToInsert)
+
     def recursiveInOrderTraversal(self):
         print("Recursive In Order Traversal")
 
@@ -69,3 +88,6 @@ if __name__ == '__main__':
     binarySearchTree.recursiveInOrderTraversal()
     binarySearchTree.recursivePreOrderTraversal()
     binarySearchTree.recursivePostOrderTraversal()
+    binarySearchTree.recursiveInsert(14)
+    binarySearchTree.recursiveInsert(6)
+    binarySearchTree.recursiveInOrderTraversal()
