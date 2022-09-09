@@ -57,6 +57,21 @@ class BST:
 
         inOrderTraversal(self.root)
 
+    def iterativeInOrderTraversal(self):
+        print("Iterative In Order Traversal")
+        stack = []
+        current = self.root
+        while True:
+            if current is not None:
+                stack.append(current)
+                current = current.left
+            elif stack:
+                current = stack.pop()
+                print(current.value)
+                current = current.right
+            else:
+                break
+
     def recursivePreOrderTraversal(self):
         print("Recursive Pre Order Traversal")
 
@@ -91,3 +106,4 @@ if __name__ == '__main__':
     binarySearchTree.recursiveInsert(14)
     binarySearchTree.recursiveInsert(6)
     binarySearchTree.recursiveInOrderTraversal()
+    binarySearchTree.iterativeInOrderTraversal()
