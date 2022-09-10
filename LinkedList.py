@@ -24,9 +24,20 @@ class LinkedList:
             print(current.value)
             current = current.next
 
+    def iterativeReverse(self):
+        prev, current = None, self.head
+        while current is not None:
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+        self.head = prev
+
 
 if __name__ == '__main__':
     List = LinkedList()
     List.iterativeInsertAtEnd(10)
     List.iterativeInsertAtEnd(11)
+    List.iterativePrint()
+    List.iterativeReverse()
     List.iterativePrint()
