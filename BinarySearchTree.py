@@ -5,7 +5,7 @@ class Node:
         self.right = right
 
 
-class BST:
+class BinarySearchTree:
     def __init__(self):
         self.root = None
 
@@ -113,12 +113,12 @@ class BST:
 
 
 if __name__ == '__main__':
-    binarySearchTree = BST()
-    binarySearchTree.iterativeInsert(10)
-    binarySearchTree.iterativeInsert(7)
-    binarySearchTree.iterativeInsert(13)
-    binarySearchTree.recursiveInsert(14)
-    binarySearchTree.recursiveInsert(6)
+    Bst = BinarySearchTree()
+    Bst.iterativeInsert(10)
+    Bst.iterativeInsert(7)
+    Bst.iterativeInsert(13)
+    Bst.recursiveInsert(14)
+    Bst.recursiveInsert(6)
 
-    binarySearchTree.recursivePostOrderTraversal()
-    binarySearchTree.iterativePostOrderTraversal()
+    Bst.recursivePostOrderTraversal()
+    Bst.iterativePostOrderTraversal()

@@ -33,6 +33,18 @@ class LinkedList:
             current = temp
         self.head = prev
 
+    def recursiveReverse(self):
+
+        def reverse(curr, prev):
+            if curr is None:
+                return prev
+            else:
+                next = curr.next
+                curr.next = prev
+                return reverse(next, curr)
+
+        self.head = reverse(self.head, None)
+
 
 if __name__ == '__main__':
     List = LinkedList()
