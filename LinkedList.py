@@ -8,6 +8,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    # O(n) time | O(1) space
     def iterativeInsertAtEnd(self, valueToInsert):
         if self.head is None:
             self.head = Node(valueToInsert)
@@ -17,6 +18,7 @@ class LinkedList:
                 current = current.next
             current.next = Node(valueToInsert)
 
+    # O(n) time | O(1) space
     def iterativePrint(self):
         print("Linked list iterative print")
         current = self.head
@@ -24,6 +26,7 @@ class LinkedList:
             print(current.value)
             current = current.next
 
+    # O(n) time | O(1) space
     def iterativeReverse(self):
         prev, current = None, self.head
         while current is not None:
@@ -33,7 +36,9 @@ class LinkedList:
             current = temp
         self.head = prev
 
+    # O(n) time | O(n) space
     def recursiveReverse(self):
+        print('Linked list recursive reverse')
 
         def reverse(curr, prev):
             if curr is None:
@@ -51,5 +56,5 @@ if __name__ == '__main__':
     List.iterativeInsertAtEnd(10)
     List.iterativeInsertAtEnd(11)
     List.iterativePrint()
-    List.iterativeReverse()
+    List.recursiveReverse()
     List.iterativePrint()

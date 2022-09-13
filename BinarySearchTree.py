@@ -111,6 +111,20 @@ class BinarySearchTree:
     def iterativePostOrderTraversal(self):
         pass
 
+    def validateBST(self):
+        pass
+
+    # leetcode 235
+    def lowestCommonAncestor(self, p, q):
+        current = self.root
+        while current:
+            if p > current.value and q > current.value:
+                current = current.right
+            elif p < current.value and q < current.value:
+                current = current.left
+            else:
+                return current.value
+
 
 if __name__ == '__main__':
     Bst = BinarySearchTree()
@@ -122,3 +136,4 @@ if __name__ == '__main__':
 
     Bst.recursivePostOrderTraversal()
     Bst.iterativePostOrderTraversal()
+    print(Bst.lowestCommonAncestor(6, 14))
