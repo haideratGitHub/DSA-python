@@ -51,6 +51,25 @@ class GraphAdjacencyList:
         graph.addEdge(4, 3)
         graph.printGraph()
 
+    def iterativeDFS(self, source):
+        if not self.graph or source not in self.graph:
+            return
+        stack = []
+        visited = set()
+
+        stack.append(source)
+        visited.add(source)
+
+        while stack:
+
+            curr = stack.pop()
+            print(curr)
+
+            for node in self.graph[curr]:
+                if node not in visited:
+                    stack.append(node)
+                    visited.add(node)
+
 
 class GraphAdjacencyMatrix:
     def __init__(self):
@@ -78,3 +97,4 @@ class GraphAdjacencyMatrix:
 if __name__ == '__main__':
     graph = GraphAdjacencyList(typeOfGraph=UNDIRECTED)
     graph.createDummyGraph()
+    graph.iterativeDFS(1)
