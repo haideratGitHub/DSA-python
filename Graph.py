@@ -52,6 +52,7 @@ class GraphAdjacencyList:
         graph.printGraph()
 
     def iterativeDFS(self, source):
+        print("Iterative DFS")
         if not self.graph or source not in self.graph:
             return
         stack = []
@@ -69,6 +70,22 @@ class GraphAdjacencyList:
                 if node not in visited:
                     stack.append(node)
                     visited.add(node)
+
+    def recursiveDFS(self, source):
+        print("Recursive DFS")
+        if not self.graph or source not in self.graph:
+            return
+
+        def DFS(node, visited):
+            visited.add(node)
+            print(node)
+
+            for node in self.graph[node]:
+                if node not in visited:
+                    DFS(node, visited)
+
+        visited = set()
+        DFS(source, visited)
 
 
 class GraphAdjacencyMatrix:
@@ -98,3 +115,4 @@ if __name__ == '__main__':
     graph = GraphAdjacencyList(typeOfGraph=UNDIRECTED)
     graph.createDummyGraph()
     graph.iterativeDFS(1)
+    graph.recursiveDFS(1)
