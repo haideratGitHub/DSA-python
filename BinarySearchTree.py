@@ -111,6 +111,20 @@ class BinarySearchTree:
     def iterativePostOrderTraversal(self):
         pass
 
+    def iterativeContains(self, value):
+        print(f'Finding {value} in BST iteratively')
+        current = self.root
+        if current.value == value:
+            return True
+        while current:
+            if current.value < value:
+                current = current.right
+            elif current.value > value:
+                current = current.left
+            else:
+                return True
+        return False
+
     # leetcode 98
     def validateBST(self):
         def dfs(root, left, right):
@@ -148,3 +162,4 @@ if __name__ == '__main__':
     Bst.iterativePostOrderTraversal()
     print(Bst.lowestCommonAncestor(6, 14))
     print(Bst.validateBST())
+    print(Bst.iterativeContains(14))
