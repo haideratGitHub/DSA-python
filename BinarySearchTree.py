@@ -125,6 +125,22 @@ class BinarySearchTree:
                 return True
         return False
 
+    def recursiveContains(self, value):
+        print(f'Finding {value} in BST recursively')
+
+        def dfs(current):
+            if current is None:
+                return False
+            elif current.value == value:
+                return True
+            else:
+                if current.value < value:
+                    return dfs(current.right)
+                else:
+                    return dfs(current.left)
+
+        return dfs(self.root)
+
     # leetcode 98
     def validateBST(self):
         def dfs(root, left, right):
@@ -163,3 +179,4 @@ if __name__ == '__main__':
     print(Bst.lowestCommonAncestor(6, 14))
     print(Bst.validateBST())
     print(Bst.iterativeContains(14))
+    print(Bst.recursiveContains(14))
