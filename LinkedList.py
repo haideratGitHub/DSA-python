@@ -18,6 +18,14 @@ class LinkedList:
                 current = current.next
             current.next = Node(valueToInsert)
 
+    def insertAtBeginning(self, valueToInsert):
+        if self.head is None:
+            self.head = Node(valueToInsert)
+        else:
+            newHead = Node(valueToInsert)
+            newHead.next = self.head
+            self.head = newHead
+
     # O(n) time | O(1) space
     def iterativePrint(self):
         print("Linked list iterative print")
