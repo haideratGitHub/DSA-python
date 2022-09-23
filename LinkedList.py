@@ -58,6 +58,16 @@ class LinkedList:
 
         self.head = reverse(self.head, None)
 
+    def detectCycle(self):
+        fast, slow = self.head, self.head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+            return False
+
 
 if __name__ == '__main__':
     List = LinkedList()
